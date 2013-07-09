@@ -24,8 +24,12 @@ References:
 var fs = require('fs');
 var program = require('commander');
 var cheerio = require('cheerio');
+var rest = require('restler');
+
 var HTMLFILE_DEFAULT = "index.html";
 var CHECKSFILE_DEFAULT = "checks.json";
+var URL_DEFAULT = "http://dry-inlet-8629.herokuapp.com/";
+var TEMP_FILE = "/tmp/temp-grader.html";
 
 var assertFileExists = function(infile) {
     var instr = infile.toString();
@@ -55,6 +59,26 @@ var checkHtmlFile = function(htmlfile, checksfile) {
     return out;
 };
 
+// process results, output as JSON
+var prepResults = function(file, checks) {
+    var checkJson = checkHtmlFile(file, checks);
+    var outJson = JSON.stringify(checkJson, null, 4);
+    console.log(outJson);
+};
+
+// callback for restler
+var buildfn = function() {
+    var response2console = function(result, response) {
+        if (result instanceof Error) {
+            console.error('Error: ' + util.format(response.message));
+        } else {
+            fs.writeFileSync(TEMP_FILE, result);
+            prepResults(TEMP_FILE, program.checks);             
+        }
+    };
+    return response2console;
+};
+
 var clone = function(fn) {
     // Workaround for commander.js issue.
     // http://stackoverflow.com/a/6772648
@@ -65,10 +89,16 @@ if(require.main == module) {
     program
         .option('-c, --checks <check_file>', 'Path to checks.json', clone(assertFileExists), CHECKSFILE_DEFAULT)
         .option('-f, --file <html_file>', 'Path to index.html', clone(assertFileExists), HTMLFILE_DEFAULT)
+        .option('-u --url', 'Checks default URL - hardcoded into  script')
         .parse(process.argv);
-    var checkJson = checkHtmlFile(program.file, program.checks);
-    var outJson = JSON.stringify(checkJson, null, 4);
-    console.log(outJson);
+    
+    if (program.url) {
+      //console.log("Attempting to process %s(%s)", URL_DEFAULT, program.url);
+      var response2console = buildfn();
+      rest.get(URL_DEFAULT).on('complete', response2console);
+     } else {
+        prepResults(program.file, program.checks);
+    }
 } else {
     exports.checkHtmlFile = checkHtmlFile;
 }
