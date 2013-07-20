@@ -3,84 +3,154 @@
   <head>
     <meta charset="utf-8">
     <title>My First Bitstarter</title>
-    <link type="text/css" rel="stylesheet"
-      href="https://d396qusza40orc.cloudfront.net/startup%2Fcode%2Fbootstrap-2.3.2.css">
-    <style type="text/css">
-     body { 
-       padding-top: 20px;
-       padding-bottom: 40px;
-     }
-     .container {
-        width: 960px;
-     }
-     p.lead { padding-top: 15px; }
-     .navigation, .pitch, .section1, .section2, .faq, .footer {
-       padding: 10px 0px 10px 0px;
-     }
-     .video, .thermometer, .order, .social {
-       border: 1px dotted; 
-       text-align: center;
-     }
-     .video {
-        /* Internal borders have 1px width, thus need to add 4 x 1px to 120px; */
-        height: 124px;
-        line-height: 124px;
-     }
-     .thermometer, .order, .social {
-       height: 40px; line-height: 40px;
-     }
-     div.row {
-      border: 1px solid;
-     }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+    <link rel="stylesheet"
+      href="https://d396qusza40orc.cloudfront.net/startup%2Fcode%2Fbootstrap-combined.no-icons.min.css">
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css">
+    <link type="text/css" rel="stylesheet" 
+      href="https://d396qusza40orc.cloudfront.net/startup%2Fcode%2Fsocial-buttons.css">
+  <script 
+      src="https://d396qusza40orc.cloudfront.net/startup%2Fcode%2Fjquery.js"></script>
+    <script 
+      src="https://d396qusza40orc.cloudfront.net/startup%2Fcode%2Fbootstrap.js"></script>
+    <link type="text/css" rel="stylesheet" href="css/bitstarter.css">
   </head>
   <body>
-  <div class="container">
-    <div class="row navigation">
-      <div class="span2 logo">
-      Logo
+
+  <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <button type="button" class="btn btn-navbar collapsed" 
+          data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="brand" href="#">Bitstarter</a>
+        <div class="nav-collapse collapse">
+          <ul class="nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
       </div>
-      <div class="span6 blank">Blank</div>
-      <div class="span4 about">About</div>
     </div>
-    <div class="row heading">
+  </div>
+
+  <div class="container">
+    <div class="row-fluid heading">
       <div class="span12">
-        <h1>Bitstarter Title</h1>
+        <h1>Product</h1>
        </div>
     </div>
-    <div class="row subheading">
+    <div class="row-fluid subheading">
       <div class="span12">
         <p class="lead">This is my first bitstarter project.</p>
        </div>
     </div>
-    <div class="row pitch">
-      <div class="span6 video">
-       Video
+    <!-- The Pitch -->
+    <div class="row-fluid pitch">
+      <div class="span5 offset1 video">
+       <img class="img-polaroid" src="http://placehold.it/480x300">
       </div>
-      <div class="span6">
-        <div class="thermometer">Thermometer</div>
-        <div class="order">Order</div>
-        <div class="social">Social</div>
+
+     <div class="span5 actions">
+
+       <div class="span8 offset2">
+         <div class="statistics">
+           <div class="span4">
+             <div class="linediv-l">
+               <h3>1000</h3> <p>backers</p>
+             </div>
+           </div>
+           <div class="span4">
+             <div class="linediv-c">
+               <h3>$3546</h3> <p>of $10,000</p>
+             </div>
+           </div>
+           <div class="span4">
+             <div class="linediv-r">
+               <h3>24</h3> <p>days left</p>
+             </div>
+           </div>
+         </div>
+       </div>
+
+      <div class="span10 offset1">
+        <div class="thermometer progress active">
+          <div class="bar bar-success" style="width:35%;"></div>
+          <div class="bar bar-warning" style="width:65%;"></div>
+        </div>
+        <div class="span6 offset3 order">
+          <button class="btn btn-success btn-large">Preorder</button>
+        </div>
+        <div class="span8 offset2 social">
+          <button class="btn btn-twitter"><i class="icon-twitter"></i> | Twitter</button>
+          <button class="btn btn-facebook"><i class="icon-facebook"></i> | Facebook</button>
+        </div>
+        </div>
+      </div>
+
+    </div>
+
+
+    <div class="row-fluid section1">
+      <div class="span5 offset1 asset">
+        <img class="img-polaroid" src="http://placehold.it/480x300">
+      </div>
+      <div class="span5 copy">
+       <p>
+         Bacon ipsum dolor sit amet beef cow eiusmod, excepteur in pastrami pork chop in frankfurter cupidatat spare ribs commodo ut swine ullamco. Consequat pig laboris esse, shoulder irure ut ut tail ad pork laborum pariatur nisi. Laborum do voluptate, pig non bacon jowl culpa quis et prosciutto turkey. Jowl sed bresaola dolore, ground round ribeye reprehenderit eu brisket dolor. Occaecat duis dolor laboris strip steak sunt nulla ground round est irure sirloin tri-tip filet mignon meatloaf.
+       </p>
       </div>
     </div>
-    <div class="row section1">
-      <div class="span12">
-        Marketing Section 1
+    <div class="row-fluid section2">
+      <div class="span5 offset1 copy copy-right">
+        <p>
+	  Bacon ipsum dolor sit amet beef cow eiusmod, excepteur in pastrami pork chop in frankfurter cupidatat spare ribs commodo ut swine ullamco. Consequat pig laboris esse, shoulder irure ut ut tail ad pork laborum pariatur nisi. Laborum do voluptate, pig non bacon jowl culpa quis et prosciutto turkey. Jowl sed bresaola dolore, ground round ribeye reprehenderit eu brisket dolor. Occaecat duis dolor laboris strip steak sunt nulla ground round est irure sirloin tri-tip filet mignon meatloaf.
+	</p>
+      </div>
+      <div class="span5 asset">
+        <img class="img-polaroid" src="http://placehold.it/480x300">
       </div>
     </div>
-    <div class="row section2">
-      <div class="span12">
-        Marketing Section 2
+    
+
+    <div class="row-fluid faq">
+      <div class="span10 offset1">
+        <h3>FAQ</h3>
+        <div class="accordion-group">
+          <div class="accordion-heading">
+            <a class="accordion-toggle" data-toggle="collapse" data-parent"#accordian2" href="#collapseOne">
+            What does FAQ Stand for?
+            </a>
+          </div>
+          <div id="collapseOne" class="accordian-body collapse">
+            <div class="accordion-inner">
+            Frequently Asked Question.
+            <p>Bacon ipsum dolor sit amet beef cow eiusmod, excepteur in pastrami pork chop in frankfurter cupidatat spare ribs commodo ut swine ullamco</p>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-group">
+          <div class="accordion-heading">
+            <a class="accordion-toggle" data-toggle="collapse" data-parent"#accordian2" href="#collapseTwo">
+            Anonther Question about Bacon?
+            </a>
+          </div>
+          <div id="collapseTwo" class="accordian-body collapse">
+            <div class="accordion-inner">
+            Because bacon tastes awesome.
+            <p>Bacon ipsum dolor sit amet beef cow eiusmod, excepteur in pastrami pork chop in frankfurter cupidatat spare ribs commodo ut swine ullamco</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="row faq">
+    <div class="row-fluid footer">
       <div class="span12">
-        FAQ
-      </div>
-    </div>
-    <div class="row footer">
-      <div class="span12">
-        Footer
+        <p>This work is licensed under the <a href="http://creativecommons.org/licenses/by-sa/3.0/">CC By-SA 3.0</a>, without all the cruft that would otherwise be put at the bottom of the page.</p>
       </div>
     </div>
   </div>
