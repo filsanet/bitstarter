@@ -7,7 +7,13 @@ app.get('/', function(request, response) {
   response.send(buf.toString());
 });
 
-var port = process.env.PORT || 5000;
+app.get('/css/bitstarter.css', function(request, response) {
+  var b = fs.readFileSync("css/bitstarter.css");
+  response.setHeader('Content-Type', 'text/css');
+  response.send(b.toString());
+});
+
+var port = process.env.PORT || 8080;
 app.listen(port, function() {
   console.log("Listening on " + port);
 });
